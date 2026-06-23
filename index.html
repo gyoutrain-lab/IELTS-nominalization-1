@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Band 9 Academic Register Builder</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; line-height: 1.6; max-width: 800px; margin: 40px auto; padding: 20px; background: #f4f7f6; }
+        .container { background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        h2 { color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 10px; }
+        .code-block { background: #2d3436; color: #fab1a0; padding: 15px; border-radius: 5px; font-family: monospace; margin: 10px 0; }
+        input, select { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px; }
+        button { background: #3498db; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; }
+        #result { margin-top: 20px; font-weight: bold; color: #2d3436; font-style: italic; border-left: 4px solid #3498db; padding-left: 15px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Band 9 Nominalization Compiler</h2>
+    <p>Break your sentence down into its academic "tags" to render a Band 9 output.</p>
+    
+    <label>1. Nominalize the Subject (The Cause):</label>
+    <input type="text" id="subject" placeholder="e.g. Government investment in sustainable energy">
+    
+    <label>2. Select Academic Linking Verb:</label>
+    <select id="verb">
+        <option value="serves as a catalyst for">serves as a catalyst for</option>
+        <option value="facilitates">facilitates</option>
+        <option value="substantially mitigates">substantially mitigates</option>
+        <option value="effectively promotes">effectively promotes</option>
+        <option value="is instrumental in achieving">is instrumental in achieving</option>
+    </select>
+    
+    <label>3. Nominalize the Outcome (The Effect):</label>
+    <input type="text" id="outcome" placeholder="e.g. the reduction of environmental degradation">
+    
+    <button onclick="renderSentence()">Render Band 9 Sentence</button>
+    
+    <div id="result"></div>
+</div>
+
+<script>
+    function renderSentence() {
+        const sub = document.getElementById('subject').value;
+        const verb = document.getElementById('verb').value;
+        const out = document.getElementById('outcome').value;
+        
+        if(sub && out) {
+            document.getElementById('result').innerText = `"${sub} ${verb} ${out}."`;
+        } else {
+            alert("Please fill in all components to compile.");
+        }
+    }
+</script>
+
+</body>
+</html>
